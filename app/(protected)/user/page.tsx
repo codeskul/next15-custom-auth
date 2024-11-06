@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import Link from "next/link";
 
+export const runtime = 'edge';
+
 function UserPage() {
   const user = useCurrentUser();
   return (

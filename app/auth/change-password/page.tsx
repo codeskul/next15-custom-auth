@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { ChangePasswordForm } from "@/components/auth/change-password-form";
 import { Card } from "@/components/ui/card";
 
+export const runtime = 'edge';
+
 const ChangePasswordPage = () => {
   return (
     <div className="container grid h-svh flex-col items-center justify-center bg-primary-foreground lg:max-w-none lg:px-0">

@@ -2,6 +2,8 @@ import { LoginForm } from "@/components/auth/login-form";
 import { Card } from "@/components/ui/card";
 import { Suspense } from "react";
 
+export const runtime = 'edge';
+
 const LoginPage = () => {
   return (
     <div className="container grid h-svh flex-col items-center justify-center bg-primary-foreground lg:max-w-none lg:px-0">

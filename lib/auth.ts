@@ -104,12 +104,12 @@ export async function doLogin(username: string, password: string) {
       },
       body: JSON.stringify(payload),
     });
+    console.log("res :: ", res)
     return await res.json();
   } catch (error) {
     console.log("Login Error :: ", error);
     // errLog("Login Error :: %O", error);
-    return { error: error };
-    // return { error: "Something went wrong in api call" };
+    return { error: "Something went wrong in api call" };
   }
 }
 

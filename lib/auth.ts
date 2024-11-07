@@ -106,6 +106,7 @@ export async function doLogin(username: string, password: string) {
     });
     return await res.json();
   } catch (error) {
+    console.log("Login Error :: ", error);
     errLog("Login Error :: %O", error);
     return { error: JSON.stringify(error) };
     // return { error: "Something went wrong in api call" };

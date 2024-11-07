@@ -96,7 +96,9 @@ export async function doLogin(username: string, password: string) {
       uname: username,
       pass: password,
     };
-    const res = await fetch(`${process.env.API_URL}/api/login/login`, {
+    const url = `${process.env.API_URL}/api/login/login`;
+    console.log("url: " + url);
+    const res = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,10 +106,10 @@ export async function doLogin(username: string, password: string) {
       },
       body: JSON.stringify(payload),
     });
-    console.log("res :: ", res)
+    console.log("res: ", res);
     return await res.json();
   } catch (error) {
-    console.log("Login Error :: ", error);
+    console.log("Login Error: ", error);
     // errLog("Login Error :: %O", error);
     return { error: "Something went wrong in api call" };
   }

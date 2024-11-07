@@ -92,11 +92,16 @@ export async function updateSession(request: NextRequest) {
 
 export async function doLogin(username: string, password: string) {
   try {
+    // const payload = {
+    //   uname: username,
+    //   pass: password,
+    // };
     const payload = {
-      uname: username,
-      pass: password,
+      username: 'emilys',
+      password: 'emilyspass',
     };
-    const url = `${process.env.API_URL}/api/login/login`;
+    // const url = `${process.env.API_URL}/api/login/login`;
+    const url = `https://dummyjson.com/auth/login`;
     console.log("url: " + url);
     const res = await fetch(url, {
       method: "POST",

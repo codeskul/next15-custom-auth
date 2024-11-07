@@ -25,11 +25,11 @@ export const login = async (
 
   let userRes = await doLogin(username, password);
 
-  if (userRes.error) return userRes;
+  if (userRes?.error) return userRes;
   if (userRes) {
-    // debug("userRes :: %O", userRes);
-    const { status } = userRes;
-    if (status === 200) {
+    debug("userRes :: %O", userRes);
+
+    if (userRes?.status === 200) {
       const { data } = userRes;
       //   debug("userRes :: %O", data);
       const { t1, t2 } = data;
@@ -38,7 +38,6 @@ export const login = async (
       const { uname, bcode, isflogin, auth, token } = t1;
 
       const user: any = {};
-
       let expires = new Date(Date.now() + 1 * minute);
       if (isflogin) {
         user.isLoggedIn = false;
@@ -67,7 +66,9 @@ export const login = async (
       } else {
         redirect(callbackUrl || DEFAULT_LOGIN_REDIRECT);
       }
-    } else if (status === 300) {
+    } else if (userRes?.status === 300) {
+      return { error: userRes.msg };
+    } else if (userRes?.status === 400) {
       return { error: userRes.msg };
     } else {
       return { error: "Something went wrong!" };

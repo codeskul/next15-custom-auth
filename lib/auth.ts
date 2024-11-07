@@ -97,8 +97,8 @@ export async function doLogin(username: string, password: string) {
     //   pass: password,
     // };
     const payload = {
-      username: 'emilys',
-      password: 'emilyspass',
+      username: "emilys",
+      password: "emilyspass",
     };
     // const url = `${process.env.API_URL}/api/login/login`;
     const url = `https://dummyjson.com/auth/login`;
@@ -112,7 +112,9 @@ export async function doLogin(username: string, password: string) {
       body: JSON.stringify(payload),
     });
     console.log("res: ", res);
-    return await res.json();
+    const data = await res.json();
+    console.log("data: ", data);
+    return data;
   } catch (error) {
     console.log("Login Error: ", error);
     // errLog("Login Error :: %O", error);

@@ -1,6 +1,6 @@
 "use server";
 
-const debug = require("debug")("app:actions/auth.ts");
+// const debug = require("debug")("app:actions/auth.ts");
 
 import { z } from "zod";
 import { changePasswordSchema, loginSchema } from "@/lib/zod";
@@ -27,14 +27,14 @@ export const login = async (
 
   if (userRes?.error) return userRes;
   if (userRes) {
-    debug("userRes :: %O", userRes);
+    // debug("userRes :: %O", userRes);
 
     if (userRes?.status === 200) {
       const { data } = userRes;
       //   debug("userRes :: %O", data);
       const { t1, t2 } = data;
-      debug("t1 %O", t1);
-      debug("t2 %O", t2);
+      // debug("t1 %O", t1);
+      // debug("t2 %O", t2);
       const { uname, bcode, isflogin, auth, token } = t1;
 
       const user: any = {};
@@ -105,7 +105,7 @@ export const changePassword = async (
 
   if (apiRes.error) return apiRes;
   if (apiRes) {
-    debug("apiRes :: %O", apiRes);
+    // debug("apiRes :: %O", apiRes);
     const { status } = apiRes;
     if (status === 200) {
       const { data, msg } = apiRes;

@@ -1,5 +1,5 @@
 // const debug = require("debug")("app:lib/auth.ts");
-const errLog = require("debug")("err:lib/auth.ts");
+// const errLog = require("debug")("err:lib/auth.ts");
 
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
@@ -107,8 +107,8 @@ export async function doLogin(username: string, password: string) {
     return await res.json();
   } catch (error) {
     console.log("Login Error :: ", error);
-    errLog("Login Error :: %O", error);
-    return { error: JSON.stringify(error) };
+    // errLog("Login Error :: %O", error);
+    return { error: error };
     // return { error: "Something went wrong in api call" };
   }
 }
